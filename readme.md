@@ -19,7 +19,7 @@ composer require xxtime/flysystem-aliyun-oss --prefer-dist -o
 ```
 
 // config yii2
-
+```
 $config['components']['fs'] = [
             '__class' => 'Supham\Flysystem\Filesystem',
             'plugins' => ['Supham\Flysystem\Plugin\PublicUrl'],
