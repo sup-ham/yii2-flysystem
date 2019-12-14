@@ -1,0 +1,18 @@
+{
+    "name": "supham/yii2-flysystem",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yusup Hambali",
+            "email": "supalpuket@gmail.com"
+        }
+    ],
+    "require": {
+        "league/flysystem": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Supham\\Flysystem\\": "src"
+        }
+    }
+}
