@@ -10,7 +10,7 @@ composer require supham/yii2-flysystem:@dev --prefer-dist -o
 Jika mau pakai alfresco
 ```bash
 composer config repos.alfres vcs https://github.com/sup-ham/alfresco-api-php-client.git
-composer require supham/alfresco-api:@dev --prefer-dist -o
+composer require supham/alfresco:@dev --prefer-dist -o
 ```
 
 Jika mau pakai Alibaba OSS
