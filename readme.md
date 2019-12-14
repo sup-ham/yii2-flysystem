@@ -4,7 +4,7 @@
 
 ```bash
 composer config repos.fs vcs https://github.com/sup-ham/yii2-flysystem.git
-composer require supham/flysystem:@dev --prefer-dist -o
+composer require supham/yii2-flysystem:@dev --prefer-dist -o
 ```
 
 Jika mau pakai alfresco
@@ -18,8 +18,8 @@ Jika mau pakai Alibaba OSS
 composer require xxtime/flysystem-aliyun-oss --prefer-dist -o
 ```
 
-// config yii2
-```
+## Config yii2
+```php
 $config['components']['fs'] = [
             '__class' => 'Supham\Flysystem\Filesystem',
             'plugins' => ['Supham\Flysystem\Plugin\PublicUrl'],
@@ -51,4 +51,26 @@ $config['components']['fs'] = [
               ],
             ],
 ],
+```
+
+## Penggunaan
+```php
+      // Download file dari cloud
+      $stream = Yii::$app->fs->readStream('path/to/file.txt');
+      return Yii::$app->response->sendStreamAsFile($stream, 'downloaded-file.txt');
+
+      // Upload content string
+      $content = file_get_contents('/home/xubuncup/Documents/Akademi_VSGA_flyer.pdf');
+      $a = Yii::$app->fs->write('arsip/tidak_vital/884/filex.txt', $content);
+
+      // Upload stream resource
+      $stream = fopen('/home/xubuncup/Documents/Akademi_VSGA_flyer.pdf', 'r');
+      $a = Yii::$app->fs->write('arsip/tidak_vital/884/filex.txt', $stream);
+
+
+      // Copy dari local /tmp ke alfresco
+      Yii::$app->fs->copy("tmp:{$file->tempName}", "cloud:$filePath", $config);
+
+      // createDir
+      $b = Yii::$app->fs->createDir('-shared-/create_foldir_via_flysystem');
 ```
