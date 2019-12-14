@@ -61,16 +61,16 @@ $config['components']['fs'] = [
 
       // Upload content string
       $content = file_get_contents('/home/xubuncup/Documents/Akademi_VSGA_flyer.pdf');
-      $a = Yii::$app->fs->write('arsip/tidak_vital/884/filex.txt', $content);
+      $a = Yii::$app->fs->write('arsip/filex.txt', $content);
 
       // Upload stream resource
       $stream = fopen('/home/xubuncup/Documents/Akademi_VSGA_flyer.pdf', 'r');
-      $a = Yii::$app->fs->write('arsip/tidak_vital/884/filex.txt', $stream);
+      $a = Yii::$app->fs->write('arsip/filex.txt', $stream);
 
 
       // Copy dari local /tmp ke alfresco
-      Yii::$app->fs->copy("tmp:{$file->tempName}", "cloud:$filePath", $config);
+      Yii::$app->fs->copy("tmp:{$file->tempName}", "alfresco:$filePath", $config);
 
       // createDir
-      $b = Yii::$app->fs->createDir('-shared-/create_foldir_via_flysystem');
+      $b = Yii::$app->fs->createDir('create_foldir_via_flysystem');
 ```
