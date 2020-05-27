@@ -51,6 +51,7 @@ $config['components']['fs'] = [
 ```
 
 ## Penggunaan
+Please refer to [Filesystem API](https://flysystem.thephpleague.com/v1/docs/usage/filesystem-api/)
 ```php
       // Download file dari cloud
       $stream = Yii::$app->fs->readStream('path/to/file.txt');
