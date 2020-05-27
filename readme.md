@@ -1,22 +1,19 @@
-# Flysystem + Yii2
+# [Flysystem](/thephpleague/flysystem) + Yii2
 
 ## Install
 
 ```bash
-composer config repos.fs vcs https://github.com/sup-ham/yii2-flysystem.git
-composer require supham/yii2-flysystem:@dev --prefer-dist -o
+composer require supham/yii2-flysystem --prefer-dist -o
 ```
 
-Jika mau pakai alfresco
+Tersedia adapter API untuk Alfresco document management software
 ```bash
-composer config repos.alfres vcs https://github.com/sup-ham/alfresco-api-php-client.git
+composer config repos.alfresco vcs https://github.com/sup-ham/alfresco-api-php-client.git
 composer require supham/alfresco:@dev --prefer-dist -o
 ```
 
-Jika mau pakai Alibaba OSS
-```bash
-composer require xxtime/flysystem-aliyun-oss --prefer-dist -o
-```
+Tersedia Flysystem plugin `Supham\Flysystem\Plugin\PublicUrl`. untuk menggunakannya disyaratkan membuat dahulu implementasi realnya di masing-masing subclass adapter. lihat [list adapters](/thephpleague/flysystem#adapters).
+contohnya jika akan menggunaan adapter AliyunOss maka install dulu [xxtime/flysystem-aliyun-oss](/xxtime/flysystem-aliyun-oss) lalu pakai subclass adapter `Supham\Flysystem\Adapter\AliyunOss` yang telah tersedia.
 
 ## Config yii2
 ```php
@@ -37,7 +34,7 @@ $config['components']['fs'] = [
                 'password' => 'password',
               ],
               'aliyun-oss' => [
-                '__class' => 'app\components\fs\Adapter\AliyunOss',
+                '__class' => 'Supham\Flysystem\Adapter\AliyunOss',
                 'args'=>[[
                   'bucket'         => aliyun_oss_bucket_name,
                   'endpoint'       => aliyun_oss_endpoint_address,
